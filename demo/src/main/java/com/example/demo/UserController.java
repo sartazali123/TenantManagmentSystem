@@ -29,11 +29,17 @@ public class UserController
     @Autowired
     UserService userservice;
 
-@RequestMapping("/")    
-public String index()  
-{    
-return "index";    
-}    
+    @RequestMapping(value = "/" , method = RequestMethod.GET)
+    public String home(Model model, User user) {
+     model.addAttribute("user", user);
+     return "dashboard";
+    }
+    
+    
+    
+	/*
+	 * @GetMapping("/") public String index() { return "index"; }
+	 */ 
 /*
  * @RequestMapping(value="/save", method=RequestMethod.POST) public ModelAndView
  * save(@ModelAttribute User user) { ModelAndView modelAndView = new
